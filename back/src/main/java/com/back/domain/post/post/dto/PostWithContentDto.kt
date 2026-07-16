@@ -14,12 +14,12 @@ data class PostWithContentDto(
     val content: String
 ) {
     constructor(post: Post) : this(
-        post.getId(),
-        post.getCreateDate(),
-        post.getModifyDate(),
-        post.getAuthor().getId(),
-        post.getAuthor().getName(),
-        post.getTitle(),
-        post.getContent()
+        post.id,
+        post.createDate,
+        post.modifyDate,
+        post.author.id,
+        post.author.name,
+        post.title,
+        post.content
     )
 }

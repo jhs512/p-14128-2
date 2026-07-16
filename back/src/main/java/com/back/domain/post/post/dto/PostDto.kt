@@ -13,11 +13,11 @@ data class PostDto(
     val title: String
 ) {
     constructor(post: Post) : this(
-        post.getId(),
-        post.getCreateDate(),
-        post.getModifyDate(),
-        post.getAuthor().getId(),
-        post.getAuthor().getName(),
-        post.getTitle()
+        post.id,
+        post.createDate,
+        post.modifyDate,
+        post.author.id,
+        post.author.name,
+        post.title
     )
 }
