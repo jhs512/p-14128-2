@@ -1,6 +1,5 @@
 package com.back.domain.post.post.controller
 
-import com.back.domain.member.member.entity.Member
 import com.back.domain.post.post.dto.PostDto
 import com.back.domain.post.post.dto.PostWithContentDto
 import com.back.domain.post.post.service.PostService
@@ -49,7 +48,7 @@ class ApiV1PostController(
     fun delete(
         @PathVariable id: Int
     ): RsData<Void> {
-        val actor: Member = rq.actor
+        val actor = rq.actor
 
         val post = postService.findById(id).get()
 
@@ -79,7 +78,7 @@ class ApiV1PostController(
     fun write(
         @RequestBody @Valid reqBody: PostWriteReqBody
     ): RsData<PostDto> {
-        val actor: Member = rq.actor
+        val actor = rq.actor
 
         val post = postService.write(actor, reqBody.title, reqBody.content)
 
@@ -107,7 +106,7 @@ class ApiV1PostController(
         @PathVariable id: Int,
         @RequestBody @Valid reqBody: PostModifyReqBody
     ): RsData<Void> {
-        val actor: Member = rq.actor
+        val actor = rq.actor
 
         val post = postService.findById(id).get()
 

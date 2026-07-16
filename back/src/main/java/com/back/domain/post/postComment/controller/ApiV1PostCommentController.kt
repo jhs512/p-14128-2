@@ -1,6 +1,5 @@
 package com.back.domain.post.postComment.controller
 
-import com.back.domain.member.member.entity.Member
 import com.back.domain.post.post.service.PostService
 import com.back.domain.post.postComment.dto.PostCommentDto
 import com.back.global.rq.Rq
@@ -56,7 +55,7 @@ class ApiV1PostCommentController(
         @PathVariable postId: Int,
         @PathVariable id: Int
     ): RsData<Void> {
-        val actor: Member = rq.actor
+        val actor = rq.actor
 
         val post = postService.findById(postId).get()
 
@@ -87,7 +86,7 @@ class ApiV1PostCommentController(
         @PathVariable id: Int,
         @RequestBody @Valid reqBody: PostCommentModifyReqBody
     ): RsData<Void> {
-        val actor: Member = rq.actor
+        val actor = rq.actor
 
         val post = postService.findById(postId).get()
 
@@ -117,7 +116,7 @@ class ApiV1PostCommentController(
         @PathVariable postId: Int,
         @RequestBody @Valid reqBody: PostCommentWriteReqBody
     ): RsData<PostCommentDto> {
-        val actor: Member = rq.actor
+        val actor = rq.actor
         val post = postService.findById(postId).get()
 
         val postComment = postService.writeComment(actor, post, reqBody.content)
