@@ -1,10 +1,8 @@
 plugins {
     java
+    kotlin("jvm") version "2.3.21"
     id("org.springframework.boot") version "4.1.0"
     id("io.spring.dependency-management") version "1.1.7"
-    kotlin("jvm")
-    kotlin("plugin.jpa") version "2.4.0"
-    kotlin("plugin.spring") version "2.4.0"
 }
 
 group = "com"
@@ -60,7 +58,12 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    implementation(kotlin("stdlib-jdk8"))
+}
+
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
+    }
 }
 
 tasks.withType<Test> {
