@@ -44,7 +44,7 @@ class ApiV1PostCommentController(
     ): PostCommentDto {
         val post = postService.findById(postId).getOrThrow()
 
-        val postComment = post.findCommentById(id).get()
+        val postComment = post.findCommentById(id).getOrThrow()
 
         return PostCommentDto(postComment)
     }
@@ -60,7 +60,7 @@ class ApiV1PostCommentController(
 
         val post = postService.findById(postId).getOrThrow()
 
-        val postComment = post.findCommentById(id).get()
+        val postComment = post.findCommentById(id).getOrThrow()
 
         postComment.checkActorCanDelete(actor)
 
@@ -91,7 +91,7 @@ class ApiV1PostCommentController(
 
         val post = postService.findById(postId).getOrThrow()
 
-        val postComment = post.findCommentById(id).get()
+        val postComment = post.findCommentById(id).getOrThrow()
 
         postComment.checkActorCanModify(actor)
 
