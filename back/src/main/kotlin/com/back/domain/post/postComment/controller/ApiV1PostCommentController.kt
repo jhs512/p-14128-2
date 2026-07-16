@@ -72,7 +72,6 @@ class ApiV1PostCommentController(
         )
     }
 
-    @JvmRecord
     data class PostCommentModifyReqBody(
         @field:NotBlank
         @field:Size(min = 2, max = 100)
@@ -103,7 +102,6 @@ class ApiV1PostCommentController(
         )
     }
 
-    @JvmRecord
     data class PostCommentWriteReqBody(
         @field:NotBlank
         @field:Size(min = 2, max = 100)

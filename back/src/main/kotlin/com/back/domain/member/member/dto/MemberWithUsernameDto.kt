@@ -4,7 +4,6 @@ import com.back.domain.member.member.entity.Member
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 
-@JvmRecord
 data class MemberWithUsernameDto(
     val id: Int,
     val createDate: LocalDateTime,

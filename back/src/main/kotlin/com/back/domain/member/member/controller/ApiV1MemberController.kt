@@ -24,7 +24,6 @@ class ApiV1MemberController(
     private val memberService: MemberService,
     private val rq: Rq
 ) {
-    @JvmRecord
     data class MemberJoinReqBody(
         @field:NotBlank @field:Size(min = 2, max = 30)
         val username: String,
@@ -54,7 +53,6 @@ class ApiV1MemberController(
     }
 
 
-    @JvmRecord
     data class MemberLoginReqBody(
         @field:NotBlank @field:Size(min = 2, max = 30)
         val username: String,
@@ -62,7 +60,6 @@ class ApiV1MemberController(
         val password: String,
     )
 
-    @JvmRecord
     data class MemberLoginResBody(
         val item: MemberDto,
         val apiKey: String,
